@@ -1,9 +1,12 @@
 package com.pluralsight.conferencespringboot.models;
 
+import org.hibernate.annotations.Type;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import java.util.List;
 
@@ -17,6 +20,9 @@ public class Speaker {
     private String title;
     private String company;
     private String speaker_bio;
+
+    @Lob
+    @Type(type = "org.hibernate.type.BinaryType")
     private byte[] speaker_photo;
 
     @ManyToMany(mappedBy = "speakers")
