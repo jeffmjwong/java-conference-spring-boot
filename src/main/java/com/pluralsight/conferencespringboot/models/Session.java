@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import java.util.List;
 
@@ -17,6 +19,11 @@ public class Session {
     private Integer session_length;
 
     @ManyToMany
+    @JoinTable(
+            name = "session_speakers",
+            joinColumns = @JoinColumn(name = "session_id"),
+            inverseJoinColumns = @JoinColumn(name = "speaker_id")
+    )
     private List<Speaker> speakers;
 
     public Session() {}
