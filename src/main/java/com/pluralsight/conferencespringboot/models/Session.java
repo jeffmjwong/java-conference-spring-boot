@@ -50,4 +50,12 @@ public class Session {
     public void setSession_length(Integer session_length) {
         this.session_length = session_length;
     }
+
+    public List<Speaker> getSpeakers() {
+        return speakers;
+    }
+
+    public void setSpeakers(List<Speaker> speakers) {
+        this.speakers = speakers;
+    }
 }
