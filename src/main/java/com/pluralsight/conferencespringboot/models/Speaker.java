@@ -79,4 +79,12 @@ public class Speaker {
     public void setSessions(List<Session> sessions) {
         this.sessions = sessions;
     }
+
+    public byte[] getSpeaker_photo() {
+        return speaker_photo;
+    }
+
+    public void setSpeaker_photo(byte[] speaker_photo) {
+        this.speaker_photo = speaker_photo;
+    }
 }
