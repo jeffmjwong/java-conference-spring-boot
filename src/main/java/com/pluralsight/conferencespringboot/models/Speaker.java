@@ -17,6 +17,7 @@ public class Speaker {
     private String title;
     private String company;
     private String speaker_bio;
+    private byte[] speaker_photo;
 
     @ManyToMany(mappedBy = "speakers")
     private List<Session> sessions;
