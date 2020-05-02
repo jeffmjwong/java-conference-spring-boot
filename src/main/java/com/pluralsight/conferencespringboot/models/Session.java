@@ -4,10 +4,10 @@ import javax.persistence.Entity;
 
 @Entity(name = "sessions")
 public class Session {
-    private Long sessionId;
-    private String sessionName;
-    private String sessionDescription;
-    private Integer sessionLength;
+    private Long session_id;
+    private String session_name;
+    private String session_description;
+    private Integer session_length;
 
     public Session() {}
 }
