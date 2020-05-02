@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import java.util.List;
 
 @Entity(name = "speakers")
@@ -17,6 +18,7 @@ public class Speaker {
     private String company;
     private String speaker_bio;
 
+    @ManyToMany(mappedBy = "speakers")
     private List<Session> sessions;
 
     public Speaker() {}
