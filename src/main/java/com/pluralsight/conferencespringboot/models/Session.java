@@ -12,8 +12,8 @@ import java.util.List;
 
 @Entity(name = "sessions")
 public class Session {
-    @Id
     @Column(name = "session_id")
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
