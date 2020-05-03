@@ -1,5 +1,6 @@
 package com.pluralsight.conferencespringboot.models;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,59 +13,66 @@ import java.util.List;
 @Entity(name = "sessions")
 public class Session {
     @Id
+    @Column(name = "session_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long session_id;
-    private String session_name;
-    private String session_description;
-    private Integer session_length;
+    private Long id;
 
-    @ManyToMany
-    @JoinTable(
-            name = "session_speakers",
-            joinColumns = @JoinColumn(name = "session_id"),
-            inverseJoinColumns = @JoinColumn(name = "speaker_id")
-    )
-    private List<Speaker> speakers;
+    @Column(name = "session_name")
+    private String name;
+
+    @Column(name = "session_description")
+    private String description;
+
+    @Column(name = "session_length")
+    private Integer length;
+
+//    @ManyToMany
+//    @JoinTable(
+//            name = "session_speakers",
+//            joinColumns = @JoinColumn(name = "session_id"),
+//            inverseJoinColumns = @JoinColumn(name = "speaker_id")
+//    )
+//    private List<Speaker> speakers;
 
     public Session() {}
 
-    public Long getSession_id() {
-        return session_id;
+    public Long getId() {
+        return id;
     }
 
-    public void setSession_id(Long session_id) {
-        this.session_id = session_id;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public String getSession_name() {
-        return session_name;
+    public String getName() {
+        return name;
     }
 
-    public void setSession_name(String session_name) {
-        this.session_name = session_name;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getSession_description() {
-        return session_description;
+    public String getDescription() {
+        return description;
     }
 
-    public void setSession_description(String session_description) {
-        this.session_description = session_description;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public Integer getSession_length() {
-        return session_length;
+    public Integer getLength() {
+        return length;
     }
 
-    public void setSession_length(Integer session_length) {
-        this.session_length = session_length;
+    public void setLength(Integer length) {
+        this.length = length;
     }
 
-    public List<Speaker> getSpeakers() {
-        return speakers;
-    }
-
-    public void setSpeakers(List<Speaker> speakers) {
-        this.speakers = speakers;
-    }
+//    public List<Speaker> getSpeakers() {
+//        return speakers;
+//    }
+//
+//    public void setSpeakers(List<Speaker> speakers) {
+//        this.speakers = speakers;
+//    }
 }

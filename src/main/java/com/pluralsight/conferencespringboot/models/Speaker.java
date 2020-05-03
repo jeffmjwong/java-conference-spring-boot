@@ -25,8 +25,8 @@ public class Speaker {
     @Type(type = "org.hibernate.type.BinaryType")
     private byte[] speaker_photo;
 
-    @ManyToMany(mappedBy = "speakers")
-    private List<Session> sessions;
+//    @ManyToMany(mappedBy = "speakers")
+//    private List<Session> sessions;
 
     public Speaker() {}
 
@@ -78,13 +78,13 @@ public class Speaker {
         this.speaker_bio = speaker_bio;
     }
 
-    public List<Session> getSessions() {
-        return sessions;
-    }
-
-    public void setSessions(List<Session> sessions) {
-        this.sessions = sessions;
-    }
+//    public List<Session> getSessions() {
+//        return sessions;
+//    }
+//
+//    public void setSessions(List<Session> sessions) {
+//        this.sessions = sessions;
+//    }
 
     public byte[] getSpeaker_photo() {
         return speaker_photo;
