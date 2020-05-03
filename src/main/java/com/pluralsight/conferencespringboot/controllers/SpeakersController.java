@@ -2,6 +2,7 @@ package com.pluralsight.conferencespringboot.controllers;
 
 import com.pluralsight.conferencespringboot.models.Speaker;
 import com.pluralsight.conferencespringboot.repositories.SpeakerRepository;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -39,5 +40,14 @@ public class SpeakersController {
     public void delete(@PathVariable Long id) {
         // Also need to check for children record before deleting.
         speakerRepository.deleteById(id);
+    }
+
+    @RequestMapping(value = "{id}", method = RequestMethod.PUT)
+    public Speaker update(@PathVariable Long id, @RequestBody Speaker speaker) {
+        // Because this is a PUT, we expect all attributes to be passed in. A PATCH would only need what get passed in.
+        // TODO: Add validation that all attributes are passed in, otherwise return a 400 bad payload
+        final Speaker existingSpeaker = speakerRepository.getOne(id);
+        BeanUtils.copyProperties(speaker, existingSpeaker, "speaker_id");
+        return speakerRepository.saveAndFlush(existingSpeaker);
     }
 }
