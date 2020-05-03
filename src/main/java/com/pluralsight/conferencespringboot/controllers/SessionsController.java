@@ -47,7 +47,7 @@ public class SessionsController {
         // Because this is a PUT, we expect all attributes to be passed in. A PATCH would only need what get passed in.
         // TODO: Add validation that all attributes are passed in, otherwise return a 400 bad payload
         final Session existingSession = sessionRepository.getOne(id);
-        BeanUtils.copyProperties(session, existingSession, "session_id");
+        BeanUtils.copyProperties(session, existingSession, "id");
         return sessionRepository.saveAndFlush(existingSession);
     }
 }
