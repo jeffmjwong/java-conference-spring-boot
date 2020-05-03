@@ -28,10 +28,10 @@ public class Speaker {
 
     private String company;
 
-    @Column(name = "session_bio")
+    @Column(name = "speaker_bio")
     private String speakerBio;
 
-    @Column(name = "session_photo")
+    @Column(name = "speaker_photo")
     @Lob
     @Type(type = "org.hibernate.type.BinaryType")
     private byte[] speakerPhoto;
