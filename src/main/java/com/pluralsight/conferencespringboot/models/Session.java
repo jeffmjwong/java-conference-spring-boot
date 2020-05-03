@@ -26,13 +26,13 @@ public class Session {
     @Column(name = "session_length")
     private Integer length;
 
-//    @ManyToMany
-//    @JoinTable(
-//            name = "session_speakers",
-//            joinColumns = @JoinColumn(name = "session_id"),
-//            inverseJoinColumns = @JoinColumn(name = "speaker_id")
-//    )
-//    private List<Speaker> speakers;
+    @ManyToMany
+    @JoinTable(
+            name = "session_speakers",
+            joinColumns = @JoinColumn(name = "session_id"),
+            inverseJoinColumns = @JoinColumn(name = "speaker_id")
+    )
+    private List<Speaker> speakers;
 
     public Session() {}
 
@@ -68,11 +68,11 @@ public class Session {
         this.length = length;
     }
 
-//    public List<Speaker> getSpeakers() {
-//        return speakers;
-//    }
-//
-//    public void setSpeakers(List<Speaker> speakers) {
-//        this.speakers = speakers;
-//    }
+    public List<Speaker> getSpeakers() {
+        return speakers;
+    }
+
+    public void setSpeakers(List<Speaker> speakers) {
+        this.speakers = speakers;
+    }
 }
