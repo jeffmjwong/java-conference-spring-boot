@@ -10,7 +10,7 @@ import javax.sql.DataSource;
 @Configuration
 public class PersistenceConfiguration {
     @Value("${spring.datasource.url}")
-    private String dbUrl;
+    private String databaseUrl;
 
     @Value("${spring.datasource.username}")
     private String dbUsername;
